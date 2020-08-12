@@ -42,28 +42,28 @@ docker-compose run web python manage.py migrate --no-input
 ```
 ## Использование
 ### Создание суперпользователя Django
-```Ваш терминал
+```bash
 docker-compose run web python manage.py createsuperuser
 ```
 ### Импорт данных в формате .json
-```Ваш терминал
+```bash
 docker-compose run web python manage.py loaddata path/to/your/json
 ```
-Пример инициализации стартовых данных:
-```Ваш терминал
+##### Пример инициализации стартовых данных:
+```bash
 docker-compose run web python manage.py loaddata fixtures/fixture.json
 ```
 ### Выключение контейнера
-```Ваш терминал
+```bash
 docker-compose down
 ```
 ### Удаление всех Docker контейнеров
-```Ваш терминал
+```bash
 docker stop $(docker ps -a -q)
 docker rm $(docker ps -a -q)
 ```
 
-### Полезные ссылки
+### Полезные ссылки:
 [Docker cheatsheet](http://dockerlabs.collabnix.com/docker/cheatsheet/) <br>
 
 [Django loaddata документация](https://docs.djangoproject.com/en/3.0/ref/django-admin/#django-admin-dumpdata) <br>
