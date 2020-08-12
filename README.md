@@ -11,7 +11,7 @@ docker -v
 ```
 Если у вас не отобразилась информация о версии вашего Docker, то установите его. [Официальная инструкция](https://docs.docker.com/engine/install/)
 
-##### Шаг второй.Сборка контейнера.
+##### Шаг второй. Сборка контейнера.
 ```Ваш терминал
 docker-compose build
 ```
@@ -42,12 +42,10 @@ docker-compose down
 docker stop $(docker ps -a -q)
 docker rm $(docker ps -a -q)
 ```
-docker stop $(docker ps -a -q)
-docker rm $(docker ps -a -q)
 
 ### Полезные ссылки
 [Docker cheatsheet](http://dockerlabs.collabnix.com/docker/cheatsheet/)
 [Django loaddata документация](https://docs.djangoproject.com/en/3.0/ref/django-admin/#django-admin-dumpdata)
-[README API_YaMDb](в разработке)
+[README API_YaMDb](https://github.com/Gregog/api_yamdb/blob/master/README.md)
 
 ## Почта для обратной связи idzaoshang@gmail.com
