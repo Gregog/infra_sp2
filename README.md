@@ -4,35 +4,43 @@
 
 ## Установка
 
-#### Шаг первый. Проверьте установлен ли у вас Docker. 
+#### Шаг первый. Проверьте установлен ли у вас Docker
 
 ```Ваш терминал
 docker -v
 ```
-Если у вас не отобразилась информация о версии вашего Docker, то установите его. [Официальная инструкция](https://docs.docker.com/engine/install/)
+Если у вас все еще не установлен Docker и вы используете Linux, то воспользуйтесь скриптом:
+```Ваш терминал
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh # эта команда запустит его
+```
+Если же у вас другая ОС, то воспользуйтесь [jфициальная инструкцией](https://docs.docker.com/engine/install/).
 
-##### Шаг второй. Сборка контейнера.
+##### Шаг второй. Сборка контейнера
 ```Ваш терминал
 docker-compose build
 ```
-##### Шаг третий. Запуск контейнера.
+##### Шаг третий. Запуск контейнера
 ```Ваш терминал
 docker-compose up
 ```
-##### Шаг четвертый. База данных.
+##### Шаг четвертый. База данных
 ```Ваш терминал
 docker-compose run web python manage.py migrate --no-input
 ```
 ## Использование
-### Создание суперпользователя Django.
+### Создание суперпользователя Django
 ```Ваш терминал
 docker-compose run web python manage.py createsuperuser
 ```
-### Импорт данных в формате .json.
+### Импорт данных в формате .json
 ```Ваш терминал
 docker-compose run web python manage.py loaddata path/to/your/json
 ```
-В папке fixtures вы найдете пример такого файла.
+Пример инициализации стартовых данных:
+```Ваш терминал
+docker-compose run web python manage.py loaddata fixtures/fixture.json
+```
 ### Выключение контейнера
 ```Ваш терминал
 docker-compose down
