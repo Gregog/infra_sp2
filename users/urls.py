@@ -1,4 +1,3 @@
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
 

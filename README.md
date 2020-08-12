@@ -1,29 +1,61 @@
-# Foobar
+# Докеризация API для Ya|MDb. Интернет-сервис о кино на базе Django REST
 
-Foobar is a Python library for dealing with word pluralization.
+Проект выполнялся в рамках учебного курса Яндекс.Практикум
 
-## Installation
+## Установка
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+#### Шаг первый. Проверьте установлен ли у вас Docker
 
-```bash
-pip install foobar
+```Ваш терминал
+docker -v
+```
+Если у вас все еще не установлен Docker и вы используете Linux, то воспользуйтесь скриптом:
+```Ваш терминал
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh # эта команда запустит его
+```
+Если же у вас другая ОС, то воспользуйтесь [jфициальная инструкцией](https://docs.docker.com/engine/install/).
+
+##### Шаг второй. Сборка контейнера
+```Ваш терминал
+docker-compose build
+```
+##### Шаг третий. Запуск контейнера
+```Ваш терминал
+docker-compose up
+```
+##### Шаг четвертый. База данных
+```Ваш терминал
+docker-compose run web python manage.py migrate --no-input
+```
+## Использование
+### Создание суперпользователя Django
+```Ваш терминал
+docker-compose run web python manage.py createsuperuser
+```
+### Импорт данных в формате .json
+```Ваш терминал
+docker-compose run web python manage.py loaddata path/to/your/json
+```
+Пример инициализации стартовых данных:
+```Ваш терминал
+docker-compose run web python manage.py loaddata fixtures/fixture.json
+```
+### Выключение контейнера
+```Ваш терминал
+docker-compose down
+```
+### Удаление всех Docker контейнеров
+```Ваш терминал
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
 ```
 
-## Usage
+### Полезные ссылки
+[Docker cheatsheet](http://dockerlabs.collabnix.com/docker/cheatsheet/) <br>
 
-```python
-import foobar
+[Django loaddata документация](https://docs.djangoproject.com/en/3.0/ref/django-admin/#django-admin-dumpdata) <br>
 
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
-```
+[README API_YaMDb](https://github.com/Gregog/api_yamdb/blob/master/README.md) <br>
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
-
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
+## Почта для обратной связи idzaoshang@gmail.com
