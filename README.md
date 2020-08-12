@@ -13,7 +13,6 @@ docker -v
 ```Ваш терминал
 curl -fsSL https://get.docker.com -o get-docker.sh
 sh get-docker.sh # эта команда запустит его
-<<<<<<< HEAD
 ```
 Если же у вас другая ОС, то воспользуйтесь [Официальная инструкцией](https://docs.docker.com/engine/install/).
 
