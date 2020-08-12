@@ -4,28 +4,40 @@
 
 ## Установка
 
-#### Шаг первый. Проверьте установлен ли у вас Docker
+#### Шаг первый. Проверьте установлен ли у вас Docker и docker-compose
 
-```Ваш терминал
+```bash
 docker -v
 ```
 Если у вас все еще не установлен Docker и вы используете Linux, то воспользуйтесь скриптом:
-```Ваш терминал
+```bash
 curl -fsSL https://get.docker.com -o get-docker.sh
 sh get-docker.sh # эта команда запустит его
 ```
-Если же у вас другая ОС, то воспользуйтесь [Официальная инструкцией](https://docs.docker.com/engine/install/).
+Если же у вас другая ОС, то воспользуйтесь официальной [инструкцией](https://docs.docker.com/engine/install/).
 
-##### Шаг второй. Сборка контейнера
-```Ваш терминал
+Далее также проверяем наличие docker-compose:
+```bash
+docker-compose -v
+```
+Если у вас не установлен docker-compose и вы пользователь системы Linux, то вы можете установить его из официального репозитория:
+```bash
+sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+#Как только завершилась установка, измените права доступа права доступа
+sudo chmod +x /usr/local/bin/docker-compose
+```
+Данная инструкция взята из [документации Docker](https://docs.docker.com/engine/install/). Там же вы найдете инструкцию по установке docker-compose на другие системы.
+
+#### Шаг второй. Сборка контейнера
+```bash
 docker-compose build
 ```
-##### Шаг третий. Запуск контейнера
-```Ваш терминал
+#### Шаг третий. Запуск контейнера
+```bash
 docker-compose up
 ```
-##### Шаг четвертый. База данных
-```Ваш терминал
+#### Шаг четвертый. База данных
+```bash
 docker-compose run web python manage.py migrate --no-input
 ```
 ## Использование
