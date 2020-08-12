@@ -26,7 +26,5 @@ services:
     # "зависит от", 
     depends_on:
       - db
-    volumes:
-      - .:/app
     env_file:
       - ./.env
