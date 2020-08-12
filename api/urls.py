@@ -1,6 +1,7 @@
+
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
-
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from .views import (
     CategoryViewSet,
     CommentViewSet,
@@ -20,3 +21,5 @@ router_v1.register(r'titles/(?P<title_id>\d+)/reviews/(?P<review_id>\d+)/comment
 urlpatterns = [
     path('v1/', include(router_v1.urls)),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
